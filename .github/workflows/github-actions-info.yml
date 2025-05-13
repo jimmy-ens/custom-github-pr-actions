@@ -16,3 +16,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Output step info
+        id: outputStepInfo
+        - run: echo "token ${{ secrets.ACTIONS_BOT_TOKEN }}"
+#        - run: echo "stepId ${{ steps.outputStepInfo.outputs.step-id }}"
