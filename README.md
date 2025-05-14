@@ -4,7 +4,7 @@
 
 ## Get GitHub actions information on push (github-actions-info.yml)
 
-### How to verify the actions' info on GitHub after each push
+### How to verify the actions info on GitHub after each push
 
 1. Select `Actions` tab on the GitHub repo
 
