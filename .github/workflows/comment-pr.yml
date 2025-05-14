@@ -21,7 +21,8 @@ jobs:
         uses: peter-evans/create-or-update-comment@v4
         id: nrt-message
         with:
-          message: |
+          issue-number: 1
+          body: |
             Current branch is `${{ github.head_ref }}`.
             _(execution **${{ github.run_id }}** / attempt **${{ github.run_attempt }}**)_
           comment-tag: nrt-message
