@@ -1,8 +1,8 @@
-name: 'Initial PR Comment'
+name: 'Additional PR Comment'
 
 on:
   pull_request_target:
-    types: [opened]
+    types: [edited, reopened, synchronize]
 
 permissions:
   issues: write
@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   comment_pr:
-    name: Initial PR Comment
+    name: Additional PR Comment
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,19 +19,18 @@ jobs:
 
       - name: Comment PR with body
         uses: peter-evans/create-or-update-comment@v4
-        id: init-pr-comment
+        id: additional-pr-comment
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            The first comment on the PR - Current branch is `${{ github.head_ref }}`.
-            _(execution **${{ github.run_id }}** / attempt **${{ github.run_attempt }}**)_
+            Additional comment on the PR.
           comment-tag: init-pr-comment
-          reactions: eyes, rocket
+          reactions: +1
           mode: recreate
 
       - name: Check outputs
         run: |
           echo "pr-id :${{ github.event.pull_request.number }}"
-          echo "comment-id : ${{ steps.init-pr-comment.outputs.id }}"
-          echo "body : ${{ steps.init-pr-comment.outputs.body }}"
-          echo "html-url : ${{ steps.init-pr-comment.outputs.html-url }}"
+          echo "comment-id : ${{ steps.additional-pr-comment.outputs.id }}"
+          echo "body : ${{ steps.additional-pr-comment.outputs.body }}"
+          echo "html-url : ${{ steps.additional-pr-comment.outputs.html-url }}"
