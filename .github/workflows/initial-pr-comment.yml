@@ -24,7 +24,7 @@ jobs:
             Current branch is `${{ github.head_ref }}`.
             _(execution **${{ github.run_id }}** / attempt **${{ github.run_attempt }}**)_
           comment-tag: init-pr-comment
-          reactions: eyes, rocket, '+1'
+          reactions: eyes, rocket, +1
           mode: recreate
 
       - name: Check outputs
