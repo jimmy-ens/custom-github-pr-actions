@@ -1,4 +1,4 @@
-name: 'Initial PR Comment'
+name: Initial PR Comment
 
 on:
   pull_request_target:
@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   comment_pr:
-    name: Initial PR Comment
+    name: PR Comment
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
