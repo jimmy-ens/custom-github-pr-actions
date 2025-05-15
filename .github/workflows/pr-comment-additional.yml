@@ -1,4 +1,4 @@
-name: 'Additional PR Comment'
+name: Additional PR Comment
 
 on:
   pull_request_target:
@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   comment_pr:
-    name: Additional PR Comment
+    name: PR Comment
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,7 +19,7 @@ jobs:
 
       - name: Comment PR with body
         uses: peter-evans/create-or-update-comment@v4
-        id: additional-pr-comment
+#        id: additional-pr-comment
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
@@ -31,6 +31,6 @@ jobs:
       - name: Check outputs
         run: |
           echo "pr-id :${{ github.event.pull_request.number }}"
-          echo "comment-id : ${{ steps.additional-pr-comment.outputs.id }}"
-          echo "body : ${{ steps.additional-pr-comment.outputs.body }}"
-          echo "html-url : ${{ steps.additional-pr-comment.outputs.html-url }}"
+          echo "comment-id : ${{ steps.comment_pr.outputs.id }}"
+          echo "body : ${{ steps.comment_pr.outputs.body }}"
+          echo "html-url : ${{ steps.comment_pr.outputs.html-url }}"
