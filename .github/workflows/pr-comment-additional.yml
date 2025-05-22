@@ -5,7 +5,7 @@ on:
 permissions:
   issues: write
   pull-requests: write
-  contents: write
+  contents: read
 
 jobs:
   comment_pr:
@@ -19,12 +19,13 @@ jobs:
         uses: jimmy-ens/pr-actions@v1
         id: additional-pr-comment
         with:
+          token: ${{ github.token }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            Additional comment on the PR.
-          comment-tag: init-pr-comment
-          reactions: '+1'
-          mode: recreate
+            Additional PR comment on repository `${{ github.repository }}`, branch `${{ github.head_ref }}`.
+#          comment-tag: init-pr-comment
+#          reactions: '+1'
+#          mode: recreate
 
       - name: Check outputs
         run: |
