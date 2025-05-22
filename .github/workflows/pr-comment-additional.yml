@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Comment PR with body
-        uses: jimmy-ens/pr-actions@main
+        uses: jimmy-ens/pr-action@7e4e3d8c6a73b25f3a9e90d461d929e57915ddb8
         id: additional-pr-comment
         with:
           token: ${{ github.token }}
