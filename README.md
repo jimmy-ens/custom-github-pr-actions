@@ -20,4 +20,4 @@
 
 ### Config `reviewers` and `assignees` in `auto_assign.yml`
 
-update-07
+update-08
